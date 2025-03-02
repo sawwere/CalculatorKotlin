@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="com.sawwere.calculatorapp.veiwmodel.Operation" />
+        <variable
+            name="viewModel"
+            type="com.sawwere.calculatorapp.veiwmodel.Calculator" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/screen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.display}"
+            android:textSize="40sp"
+            android:gravity="end"
+            android:padding="16dp"
+            android:background="@android:color/darker_gray"
+            android:textColor="@android:color/white"/>
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:columnCount="4"
+            android:rowCount="5">
+
+            <!-- Row 1 -->
+            <Button
+                android:text="RESET"
+                android:onClick="@{() -> viewModel.reset()}"
+                android:layout_columnSpan="2"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:textSize="24sp"/>
+            <Button
+                android:text="C"
+                android:onClick="@{() -> viewModel.clear()}"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:textSize="24sp"/>
+
+            <Button
+                android:text="÷"
+                android:onClick="@{() -> viewModel.addOperation(Operation.DIV)}"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:textSize="24sp"/>
+
+            <!-- Row 2 -->
+            <Button
+                android:text="7"
+                android:onClick="@{() -> viewModel.addDigit(7)}"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:textSize="24sp"/>
+            <Button
+                android:text="8"
+                android:onClick="@{() -> viewModel.addDigit(8)}"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:textSize="24sp"/>
+            <Button
+                android:text="9"
+                android:onClick="@{() -> viewModel.addDigit(9)}"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:textSize="24sp"/>
+
+            <Button
+                android:text="×"
+                android:onClick="@{() -> viewModel.addOperation(Operation.MUL)}"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:textSize="24sp"/>
+
+            <!-- Row 3 -->
+            <Button
+                android:text="4"
+                android:onClick="@{() -> viewModel.addDigit(4)}"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:textSize="24sp"/>
+            <Button
+                android:text="5"
+                android:onClick="@{() -> viewModel.addDigit(5)}"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:textSize="24sp"/>
+            <Button
+                android:text="6"
+                android:onClick="@{() -> viewModel.addDigit(6)}"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:textSize="24sp"/>
+
+            <Button
+                android:text="-"
+                android:onClick="@{() -> viewModel.addOperation(Operation.SUB)}"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:textSize="24sp"/>
+
+            <!-- Row 4 -->
+            <Button
+                android:text="1"
+                android:onClick="@{() -> viewModel.addDigit(1)}"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:textSize="24sp"/>
+            <Button
+                android:text="2"
+                android:onClick="@{() -> viewModel.addDigit(2)}"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:textSize="24sp"/>
+            <Button
+                android:text="3"
+                android:onClick="@{() -> viewModel.addDigit(3)}"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:textSize="24sp"/>
+
+            <Button
+                android:text="+"
+                android:onClick="@{() -> viewModel.addOperation(Operation.ADD)}"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:textSize="24sp"/>
+
+            <!-- Row 5 -->
+            <Button
+                android:text="."
+                android:onClick="@{() -> viewModel.addPoint()}"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:textSize="24sp"/>
+            <Button
+                android:text="0"
+                android:onClick="@{() -> viewModel.addDigit(0)}"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:textSize="24sp"/>
+
+            <Button
+                android:text="="
+                android:onClick="@{() -> viewModel.compute()}"
+                android:layout_columnSpan="2"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:textSize="24sp"
+                android:backgroundTint="@color/colorAccent"
+                android:textColor="@android:color/white"
+                android:stateListAnimator="@null"
+                android:elevation="8dp"
+                android:fontFamily="sans-serif-medium"
+                />
+        </GridLayout>
+    </LinearLayout>
+</layout>
