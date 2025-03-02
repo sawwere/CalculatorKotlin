@@ -75,8 +75,7 @@ class CalculatorViewModel: BaseObservable(), Calculator {
         if (currentNumber.isEmpty() && operand1 == null) return
         if (currentNumber.isNotEmpty()) {
             val operand2 = currentNumber.toString().toDoubleOrNull() ?: return
-            val result = performOperation(operand1!!, operand2, currentOperator)
-            operand1 = result
+            operand1 = if (operand1 == null) {operand2} else performOperation(operand1!!, operand2, currentOperator)
             currentNumber.clear()
             updateScreen()
         }
